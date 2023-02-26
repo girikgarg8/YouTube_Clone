@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const apiSlice=createSlice({
+const appSlice=createSlice({
     name:"app",
     initialState:{
         isMenuOpen:true,
