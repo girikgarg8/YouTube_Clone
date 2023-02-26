@@ -1,6 +1,6 @@
 Welcome to notes on YouTube clone
 
-See the arhcitecture of this app here:  <Link to handwritten notes />
+See the arhcitecture of this app here:  https://drive.google.com/file/d/1QDA1JxnppR8__oet_VhHYKIp1ERxJC-W/view?ts=63fac829  and https://drive.google.com/file/d/1QJKg_udwETdxBMAoqhDME2jA6k9A3MuN/view?ts=63fac841
 npx create-react-app means we are exceuting a NPM package create-react-app using NPM
 
 reportWebVitals is a function that is used to report performance metrics of a web application to various web analytics tools or dashboards. 
@@ -9,7 +9,7 @@ The reportWebVitals function takes in a callback function as a parameter, which 
 
 StrictMode is a React Developer Tool primarily used for highlighting possible problems in a web application. It activates additional deprecation checks and warnings for its child components. One of the reasons for its popularity is the fact that it provides visual feedback (warning/error messages) whenever the React guidelines and recommended practices are not followed. Just like the React Fragment, the React StrictMode Component does not render any visible UI. 
 
-lll
+For styling the header, I will use grid to style the app. Grid basically di vides the section into 12 pieces.
 
 
 
