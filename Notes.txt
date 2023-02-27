@@ -11,6 +11,44 @@ StrictMode is a React Developer Tool primarily used for highlighting possible pr
 
 For styling the header, I will use grid to style the app. Grid basically divides the section into 12 pieces.
 
+The action of clicking on hamburger icon, and the collapsing of hamburger icon, is something that requires me to use a state variable.
+
+Where should I store this state variable? Inside header/body/app component? The correct answer is none of these, because I have to be far-sighted as the action of clicking on hamburger can happen anywhere inside the app, so I should use Redux, so I install reduxjs/toolkit and react-redux
+
+After configuring Redux in my app, I need to check in the interview whether Redux has been properly configured or not, for that I can use either useSelector hook or the React extension.
+
+Now, as the sidebar component depends on the isMenuOpen option in slice, the sideBar needs to subscribe to the slice using useSelector hook. There's one important thing, I will not subscribe to the entire store, but I will subscribe to only the specified value in the slice. (this point was discussed in Namaste React  series too, the reason is that slice is huge )
+and it makes my app less performant if I subscribe to the entire slice)
+
+I can use early return in the sideBar component in case the toggledOption is true.
+
+Early return pattern: Early return is a coding pattern in React (and in programming in general) that involves exiting a function or block of code as soon as a certain condition is met, rather than continuing to execute the rest of the code.
+
+In the context of React, early return is often used in rendering functions to handle certain edge cases or error conditions. For example, if you have a component that expects a certain prop to be passed in, you might use early return to check if the prop exists and return a different JSX element or message if it is missing or invalid.
+
+When designing the videoContainer,  we should ask the interviewer, where will we get the data from? Will we hardcoded or will we get it from an API?
+
+Here, I am using YouTube API, so I use API key.
+
+(Curiosity in my mind:Why do I need API keys?)
+
+An API key is a unique identifier that allows you to access an application programming interface (API) or a web service. When you use an API key, you can access the functionality of the service or API from your own application, website, or mobile app.
+
+You might need to create an API key for a variety of reasons, such as:
+
+Authentication: Many APIs require an API key as a way to authenticate and authorize access to their services. The API key identifies your application, and the API can check that key to make sure it is authorized to access the service.
+
+Rate limiting: Some APIs limit the number of requests that you can make in a given time period. By using an API key, the API can track the number of requests your application has made, and limit them if necessary.
+
+Billing: Some APIs charge for usage, and require an API key to keep track of the usage and to bill you for it.
+
+Security: By requiring an API key, the API provider can track usage and identify any potential security breaches or misuse of their service.
+
+I can use the fetch to do API calls, there isn't something very special about Axios. Fetch can be used in production as well.
+
+Use console.log of objects wherever stuck or in confusion.
+
+After making the videos page, let's know make the watch page and set up the React Routing
 
 
 
