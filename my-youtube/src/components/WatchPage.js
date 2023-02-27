@@ -2,7 +2,7 @@ import React from 'react'
 
 const WatchPage = () => {
   return (
-    <div> </div>
+    <div> WatchPage </div>
   )
 }
 

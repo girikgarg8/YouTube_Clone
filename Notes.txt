@@ -50,5 +50,34 @@ Use console.log of objects wherever stuck or in confusion.
 
 After making the videos page, let's know make the watch page and set up the React Routing
 
+===Important point: One of my doubts answered: Why do I need to define "/" as a children in the createBrowserRouter, when path "/" already exists in the following code:
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />,
+    children: [
+      {
+        path: "/",
+        element: <MainContainer />,
+      },
+      {
+        path: "watch",
+        element: <WatchPage />,
+      }) 
+===
+
+n React Router, you need to define the "/" route both as a parent and as a child in the router configuration. The reason for this is that the parent "/" route is used to define the common layout or template for all routes, whereas the child "/" route is used to define the specific content for the home page.
+
+In the given code, the parent "/" route is defined with the path: "/" and element: <Body /> properties, which means that the Body component will be rendered for all routes that start with "/". The Body component includes a Sidebar component and an Outlet component, which is used to render the child components of the current route.
+
+The child "/" route is defined with the path: "/" and element: <MainContainer /> properties, which means that the MainContainer component will be rendered for the home page (i.e., the root URL "/"). The MainContainer component is rendered inside the Outlet component of the Body component, which means that it will be rendered in the main content area of the page.
+
+===What does Outlet do, in simple words?===
+
+When you use an outlet, you define a set of routes in your application, each of which is associated with a specific component that should be rendered when the URL matches the route's path. The outlet component then renders the component associated with the current route.
+
+A more beatiful defintion (which can be used in interviews): An <Outlet> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. Example of parent route element is "/about" and example of child route element is "/about/user"
+
+
 
 
