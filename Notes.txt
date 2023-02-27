@@ -80,3 +80,14 @@ A more beatiful defintion (which can be used in interviews): An <Outlet> should 
 
 In order to close the sidebar when I click on any particular video, I weill dispatch an action to close the menu in the WatchPage component
 
+===Building youtube advanced===
+
+Higher order component is a function that takes a component and return a new component.
+
+Usecase: suppose that on YouTube, I want to display the ads with a different video card, so I can modify the existing video card component, and maybe make changes to display "Ad" in front of the video and not use a channel name (as ads don't have channel name on YouTube)
+
+Important interview question: Build the search functionality, search is required for almost all React apps.
+
+Whenever I search for any text on any app 
+(like YouTube or Google ), it makes API calls.
+
