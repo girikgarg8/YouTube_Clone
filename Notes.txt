@@ -78,6 +78,5 @@ When you use an outlet, you define a set of routes in your application, each of 
 
 A more beatiful defintion (which can be used in interviews): An <Outlet> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. Example of parent route element is "/about" and example of child route element is "/about/user"
 
-
-
+In order to close the sidebar when I click on any particular video, I weill dispatch an action to close the menu in the WatchPage component
 
