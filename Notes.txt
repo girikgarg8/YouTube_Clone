@@ -91,3 +91,17 @@ Important interview question: Build the search functionality, search is required
 Whenever I search for any text on any app 
 (like YouTube or Google ), it makes API calls.
 
+What is the concept of debouncing (explained with a real life usecase): let's say I type "iphone pro max" slowly in the search bar, so it will make API calls for each and every keystroke in the search text, but if I enter the text fast, then it will make less number of API calls.
+
+So, basically, I can specify that if difference of time between two keystrokes is less than 200 ms, don't make an API call.
+
+so, technically this is known as debouncing with 200ms, debouncing is nothing but setting setInterval with a duration of 200 ms to make an API call in this case (there's a video by akshay sir on debouncing)
+
+Debouncing will lead to a huge improvement in performance, for example,
+
+--- "iphone pro max": without debouncing: 14 letters*1000=14000 API calls if 1000 users
+
+--with debouncing: 3 API calls*1000= 3000 API calls
+
+
+
