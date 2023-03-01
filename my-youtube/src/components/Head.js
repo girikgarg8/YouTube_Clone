@@ -1,13 +1,24 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice';
-
+import { YOUTUBE_SEARCH_API } from '../utils/constants';
 const Head = () => {
   const dispatch = useDispatch();
-
+  const [searchQuery, setSearchQuery] = useState("");
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   }
+
+  useEffect(()=>{
+    getSearchSuggestions()
+  },[searchQuery])
+
+  const getSearchSuggestions=async ()=>{
+    const data=await fetch(YOUTUBE_SEARCH_API+searchQuery);
+    const json=await data.json();
+    console.log(json)
+  }
+  console.log(searchQuery)
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
@@ -18,10 +29,14 @@ const Head = () => {
         </a>
       </div>
       <div className="col-span-10">
-        <input type="text" className="w-1/2 border border-gray-400 p-2 rounded-l-full"></input>
-        </div>
-        </div>
-      )
-  }
+        <input type="text" className="w-1/2 border border-gray-400 p-2 rounded-l-full" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} ></input>
+        <button className="px-3 border border-gray-400 p-2 rounded-r-full" > Search </button>
+      </div>
+      <div className="col-span-1">
+        <img alt="user" src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" className="h-8" />
+      </div>
+    </div >
+  )
+}
 
 export default Head;
