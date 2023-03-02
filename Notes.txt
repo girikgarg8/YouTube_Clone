@@ -103,5 +103,9 @@ Debouncing will lead to a huge improvement in performance, for example,
 
 --with debouncing: 3 API calls*1000= 3000 API calls
 
+===Very important concept, how to use debouncing in React...many people memorise this code, but I am a smart developer :D, so I believe in understanding things===
+
+So, let's understand how I can use debouncing in React
+
 
 
