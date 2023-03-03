@@ -1,24 +1,37 @@
 import React,{useState,useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice';
-import { YOUTUBE_SEARCH_API } from '../utils/constants';
+import { YOUTUBE_SEARCH_API, YOUTUBE_VIDEOS_API } from '../utils/constants';
 const Head = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
+
+  const getSearchSuggestions = async () => {
+    console.log("API call " + searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const json = await data.json();
+    console.log(json)
+  }
+  useEffect(() => {
+    const timer = setTimeout(() => getSearchSuggestions(), 3000);
+
+    return () => {
+      clearTimeout(timer);
+    } //make an API call after every key press, but if difference between 2 api calls is <200ms, decline the API call
+  }, [searchQuery]);
+
+  /*
+  key:i 
+  render the component, useEffect(), start timer, the timer is implanted in the DOM => make API call after 200 ms
+
+
+  key:ip
+  call the return method of useEffect on re-rednering of component, and the old timer is removed from the DOM, and a new timer is inserted into the DOM, which is called after 200 ms
+*/
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   }
 
-  useEffect(()=>{
-    getSearchSuggestions()
-  },[searchQuery])
-
-  const getSearchSuggestions=async ()=>{
-    const data=await fetch(YOUTUBE_SEARCH_API+searchQuery);
-    const json=await data.json();
-    console.log(json)
-  }
-  console.log(searchQuery)
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
@@ -31,9 +44,16 @@ const Head = () => {
       <div className="col-span-10">
         <input type="text" className="w-1/2 border border-gray-400 p-2 rounded-l-full" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} ></input>
         <button className="px-3 border border-gray-400 p-2 rounded-r-full" > Search </button>
+        <div className="fixed bg-white">
+          <ul>
+            <li> Iphone Pro </li>
+            <li> Iphone Max </li>
+          </ul>
+        </div>
       </div>
       <div className="col-span-1">
         <img alt="user" src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" className="h-8" />
+        
       </div>
     </div >
   )
